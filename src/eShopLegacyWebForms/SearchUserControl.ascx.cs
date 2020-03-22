@@ -11,7 +11,7 @@ namespace eShopLegacyWebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            buttonSearch.Click += new EventHandler(this.SearchClick);
+            buttonSearch.Click += SearchClick;
         }
 
         protected void SearchClick(object sender, EventArgs e)

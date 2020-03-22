@@ -45,6 +45,19 @@ namespace eShopLegacyWebForms.Services
                 pageIndex, pageSize, items.Count, itemsOnPage);
         }
 
+        public PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(string name)
+        {
+            var items = ComposeCatalogItems(catalogItems);
+
+            var itemsOnPage = items
+                .OrderBy(c => c.Id)
+                .Where(c => c.Name.Contains(name))
+                .ToList();
+
+            return new PaginatedItemsViewModel<CatalogItem>(
+                0, 1000, items.Count, itemsOnPage);
+        }
+
         public CatalogItem FindCatalogItem(int id)
         {
             return catalogItems.FirstOrDefault(x => x.Id == id);

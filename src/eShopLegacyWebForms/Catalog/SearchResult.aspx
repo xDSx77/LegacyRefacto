@@ -5,9 +5,7 @@
 
     <div class="esh-table">
         <section class="esh-body-title">
-            <!--><div class="container esh-header"><!-->
-                <h1 class="esh-header-title">Search Result</h1>
-            <!--></div><!-->
+            <h1 class="esh-header-title">Search Result</h1>
         </section>
 
         <asp:ListView ID="productList" ItemPlaceholderID="itemPlaceHolder" runat="server" ItemType="eShopLegacyWebForms.Models.CatalogItem">
@@ -115,24 +113,5 @@
                 </tr>
             </ItemTemplate>
         </asp:ListView>
-    </div>
-
-    <div class="esh-pager">
-        <div class="container">
-            <article class="esh-pager-wrapper row">
-                <nav>
-                    <asp:HyperLink ID="PaginationPrevious" runat="server" CssClass="esh-pager-item esh-pager-item--navigable">
-                        Previous
-                    </asp:HyperLink>
-
-                    <span class="esh-pager-item">Showing <%: Model.ItemsPerPage%> of <%: Model.TotalItems%> products - Page <%: (Model.ActualPage + 1)%> - <%: Model.TotalPages%>
-                    </span>
-
-                    <asp:HyperLink ID="PaginationNext" runat="server" CssClass="esh-pager-item esh-pager-item--navigable">
-                        Next
-                    </asp:HyperLink>
-                </nav>
-            </article>
-        </div>
     </div>
 </asp:Content>

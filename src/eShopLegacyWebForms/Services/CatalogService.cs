@@ -52,6 +52,21 @@ namespace eShopLegacyWebForms.Services
                 pageIndex, pageSize, totalItems, itemsOnPage);
         }
 
+        public PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(string itemName)
+        {
+            var totalItems = db.CatalogItems.LongCount();
+
+            var itemsOnPage = db.CatalogItems
+                .Include(c => c.CatalogBrand)
+                .Include(c => c.CatalogType)
+                .OrderBy(c => c.Id)
+                .Where(c => c.Name.Contains(itemName))
+                .ToList();
+
+            return new PaginatedItemsViewModel<CatalogItem>(
+                0, 1000, totalItems, itemsOnPage);
+        }
+
         public CatalogItem FindCatalogItem(int id)
         {
             return db.CatalogItems.Include(c => c.CatalogBrand).Include(c => c.CatalogType).FirstOrDefault(ci => ci.Id == id);

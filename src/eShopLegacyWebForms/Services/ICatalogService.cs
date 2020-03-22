@@ -11,6 +11,7 @@ namespace eShopLegacyWebForms.Services
         IEnumerable<CatalogBrand> GetCatalogBrands();
         PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize, int pageIndex);
         PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize, int pageIndex, string name);
+        PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(string name);
         IEnumerable<CatalogType> GetCatalogTypes();
         void CreateCatalogItem(CatalogItem catalogItem);
         void UpdateCatalogItem(CatalogItem catalogItem);
